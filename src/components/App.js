@@ -4,19 +4,17 @@ import '../styles/App.css';
 function ToDo({id, createdAt}) {
   return (<tr>
     <td>
-      <p>{todoId}</p>
+      <p>{id}</p>
     </td>
     <td>
-      <input type="text" value ="Some Text" />
+      <input />
     </td>
     <td>
       <p>{createdAt}</p>
     </td>
   </tr>)
 }
-const reverseOrder =()={
-  setTodos([...todos].reverse());
-};
+
 function App() {
   const [todos, setTodos] = useState([{
     id: 'todo1',
@@ -26,27 +24,25 @@ function App() {
     createdAt: '18:00',
   }
   ]);
-
+  const handClick = () => {
+    setTodos(prev => [...prev].reverse());
+  }
   return (
     <div id="main">
-      <button onClick={reverseOrder}>Reverse</button>
+      <button onClick={handClick}>Reverse</button>
       <table>
-        <thead>
-        <tr>
-    <th>ID</th>
-    <th>Input</th>
-    <th>Created</th>
-    </tr>
-    </thead>
-    <tbody>
-    {todos.map((todo) =>(
-      <ToDo key ={todo.id} id ={todo.id} createdAt={todo.createdAt} />
-))}
+        <tbody>{
+          todos.map(todo => (
+            <ToDo key = {todo.id} id={todo.id} createdAt={todo.createdAt}/>
+  ))
+    }
         </tbody>
       </table>
     </div>
   )
 }
+
+
 
 
 export default App;

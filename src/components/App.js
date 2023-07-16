@@ -4,18 +4,18 @@ import '../styles/App.css';
 function ToDo({id, createdAt}) {
   return (<tr>
     <td>
-      <p>id</p>
+      <p>{todoId}</p>
     </td>
     <td>
-      <input type="text" value ="Some text" />
+      <input type="text" value ="Some Text" />
     </td>
     <td>
-      <p>createdAt</p>
+      <p>{createdAt}</p>
     </td>
   </tr>)
 }
 const reverseOrder =()={
-  setTodos((prevTodos)=>[..prevTodos].reverse());
+  setTodos([...todos].reverse());
 };
 function App() {
   const [todos, setTodos] = useState([{
